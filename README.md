@@ -101,7 +101,9 @@ arquitetura REST e integrações com banco de dados.
 7 - Exclusão de um Tópico:
 
 Endpoint: /topicos/{id}
+
 Método: DELETE
+
 Resposta: 204 No Content se o tópico for excluído com sucesso.
 
   ##
