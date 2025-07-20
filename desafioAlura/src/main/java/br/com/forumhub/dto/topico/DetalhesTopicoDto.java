@@ -1,0 +1,32 @@
+package br.com.forumhub.dto.topico;
+
+import br.com.forumhub.models.entities.Topico;
+import br.com.forumhub.models.status.Status;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.time.LocalDateTime;
+
+public record DetalhesTopicoDto(
+        Long id,
+        String titulo,
+        String mensagem,
+        @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
+        LocalDateTime dataCriacao,
+        Status status,
+        String autor,
+        String curso
+//        List<Resposta> respostas
+) {
+    public DetalhesTopicoDto(Topico topico) {
+        this(
+                topico.getId(),
+                topico.getTitulo(),
+                topico.getMensagem(),
+                topico.getDataCriacao(),
+                topico.getStatus(),
+                topico.getAutor().getNome(),
+                topico.getCurso()
+//                topico.getRespostas()
+        );
+    }
+}
